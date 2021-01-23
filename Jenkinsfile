@@ -1,9 +1,10 @@
 
-abcs = ['a', 'b', 'c']
-def configMap = readJSON file: 'pipelineConfig.json'
 
 pipeline {
     agent any
+    abcs = ['a', 'b', 'c']
+    def configMap = readJSON file: 'pipelineConfig.json'
+
 
     stages {
         stage('Loop execution') {
