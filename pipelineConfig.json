@@ -1,0 +1,12 @@
+{
+    "environments": [
+        {
+            "appname" : "Foo",
+            "otherStuff": "123"
+        },
+        {
+            "appname" : "Bar",
+            "otherStuff": "456"
+        }
+    ]
+}
