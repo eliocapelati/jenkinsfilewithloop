@@ -1,9 +1,9 @@
 
+abcs = ['a', 'b', 'c']
+
 
 pipeline {
     agent any
-    abcs = ['a', 'b', 'c']
-    def configMap = readJSON file: 'pipelineConfig.json'
 
 
     stages {
@@ -11,6 +11,13 @@ pipeline {
             steps {
                 echo 'Loop execution'
                 recursiveFun(abcs)
+                script {
+                    def configMap = readJSON file: 'pipelineConfig.json'
+                    configMap["environments"].each{ option -> 
+                        echo "appname: ${option['appname']}"
+                        echo "otherStuff: ${option['otherStuff']}"
+                    }
+                }
             }
         }
     }
@@ -21,10 +28,5 @@ pipeline {
 def recursiveFun(elements){
     elements.each{ element -> 
         echo "element: ${element}"
-    }
-
-    configMap["environments"].each{ option -> 
-        echo "appname: ${option['appname']}"
-        echo "otherStuff: ${option['otherStuff']}"
     }
 }
