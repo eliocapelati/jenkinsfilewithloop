@@ -1,0 +1,31 @@
+= Running Jenkinsfile with external configuration
+
+
+== Short description
+
+This repo contains a Jenkinsfile with a external configuration file.
+
+This is very usefull to maintaing just only one Jenkinksfile structure, and define all the pipeline metadata into a external file.
+
+We use a json file in order to make external configuration flexible.
+
+
+
+=== Necessary plugins
+
+To make the things easy, we're using  the https://plugins.jenkins.io/pipeline-utility-steps/[Pipeline Utility Steps] to easily load the config from external.
+
+Please, make shure to install this plugin into your Jenkins Server.
+
+=== Running this example
+
+You can run this example on your machine, by running Jenkins Server using docker.
+
+Here's a example how to run:
+
+[source, sh]
+---
+docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
+---
+
+Please, for more information about the setup, visit: https://github.com/jenkinsci/docker/blob/master/README.md[github.com/jenkinsci]
