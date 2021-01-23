@@ -18,6 +18,6 @@ pipeline {
 @NonCPS
 def recursiveFun(elements){
     elements.each{ element -> 
-        sh "element: ${element}"
+        echo "element: ${element}"
     }
 }
